@@ -13,6 +13,7 @@
 
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.Components.Web" Version="8.0.8" />
+    <PackageReference Include="SILF.Script" Version="1.0.0" />
   </ItemGroup>
 
   <ItemGroup>

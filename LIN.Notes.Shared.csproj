@@ -17,7 +17,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\AccesoAPI\LIN.Access.Notes\LIN.Access.Notes.csproj" />
-    <ProjectReference Include="..\..\Tipos\LIN.Types.Notes\LIN.Types.Notes.csproj" />
   </ItemGroup>
 
 </Project>

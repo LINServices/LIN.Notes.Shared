@@ -11,10 +11,10 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="LIN.Access.Auth" Version="1.1.0" />
+    <PackageReference Include="LIN.Access.Auth" Version="1.4.0" />
     <PackageReference Include="LIN.Access.Notes" Version="1.1.0" />
     <PackageReference Include="Microsoft.AspNetCore.Components.Web" Version="8.0.10" />
-    <PackageReference Include="SILF.Script" Version="1.0.0" />
+    <PackageReference Include="SILF.Script" Version="13.2.0" />
   </ItemGroup>
 
 </Project>

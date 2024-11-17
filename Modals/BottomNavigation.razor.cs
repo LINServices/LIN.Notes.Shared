@@ -1,9 +1,7 @@
 ﻿namespace LIN.Notes.Shared.Modals;
 
-
 public partial class BottomNavigation
 {
-
 
     /// <summary>
     /// Sección actual de la barra de navegación.
@@ -12,43 +10,16 @@ public partial class BottomNavigation
     public DockSettings Settings { get; set; } = new();
 
 
-
     /// <summary>
     /// Elemento SVG del botón central.
     /// </summary>
     [Parameter]
     public Action? OnClick { get; set; }
 
-
-
-
-    /// <summary>
-    /// Ir a la sección.
-    /// </summary>
-    /// <param name="section">Numero de la sección.</param>
-    void GoSection(int section)
-    {
-
-        if (section == 0)
-            navigationManager.NavigateTo("/home");
-
-        else if (section == 1)
-            navigationManager.NavigateTo("/inventory");
-
-        else if (section == 2)
-            navigationManager.NavigateTo("/contacts");
-
-        else if (section == 3)
-            navigationManager.NavigateTo("/account");
-
-    }
-
-
     void Go()
     {
         OnClick?.Invoke();
     }
-
 
 }
 

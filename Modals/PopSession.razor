@@ -3,20 +3,15 @@
 
 @code {
 
-
-
     string Key = Guid.NewGuid().ToString();
-
 
     protected override void OnAfterRender(bool firstRender)
     {
         js.InvokeVoidAsync("showPopover", $"popover-user-profile-{Key}", $"img-prof-{Key}", DotNetObjectReference.Create(this));
     }
 
-
     [Parameter]
     public Action OnClick { get; set; } = () => { };
-
 
     [JSInvokable("OnHide")]
     public void Hide()
@@ -82,7 +77,7 @@ else
     <!-- Footer -->
     <div class="flex items-center justify-between bg-gray-100 px-4 py-2 dark:bg-zinc-800">
 
-        <button @onclick="OnClick" type="button" class="border-transparent flex w-full items-center justify-center gap-x-2 rounded-full border bg-red-600 px-3 py-1.5 text-center text-sm font-medium text-white hover:bg-red-700 disabled:opacity-50 disabled:pointer-events-none dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600">
+        <button @onclick="OnClick" type="button" class="flex w-full items-center justify-center gap-x-2 rounded-full border border-transparent bg-red-600 px-3 py-1.5 text-center text-sm font-medium text-white hover:bg-red-700 disabled:opacity-50 disabled:pointer-events-none dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600">
             Cerrar Sesión
         </button>
     </div>

@@ -18,6 +18,12 @@ public partial class NoteControl
 
 
     /// <summary>
+    /// Indica si la nota tiene tareas.
+    /// </summary>
+    private bool HasTasks => Note?.Tasks?.Count > 0;
+
+
+    /// <summary>
     /// Obtener las clases de los colores.
     /// </summary>
     private string GetClass()

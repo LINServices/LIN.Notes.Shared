@@ -6,8 +6,8 @@
             <svg class="h-6 w-6 dark:fill-zinc-300" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><path d="M16 64C16 28.7 44.7 0 80 0H304c35.3 0 64 28.7 64 64V448c0 35.3-28.7 64-64 64H80c-35.3 0-64-28.7-64-64V64zM144 448c0 8.8 7.2 16 16 16h64c8.8 0 16-7.2 16-16s-7.2-16-16-16H160c-8.8 0-16 7.2-16 16zM304 64H80V384H304V64z" /></svg>
         </div>
     }
-    <div class="mt-1 flex">
 
+    <div class="mt-1 flex">
         @if (Note?.Language == Types.Enumerations.Languages.Spanish)
         {
             <img src="./img/spain.png" class="h-3 w-3" />
@@ -16,9 +16,38 @@
         {
             <img src="./img/english.png" class="h-3 w-3" />
         }
-
     </div>
-    <label class="mt-2 text-lg font-bold text-zinc-800 dark:text-white">@Note?.Tittle</label>
-    <label class="mt-0.5 truncate text-sm font-medium break-all whitespace-normal text-zinc-700 dark:text-white">@Note?.Content</label>
-   
+
+    <label class="mt-2 text-lg font-bold leading-tight text-zinc-800 dark:text-white">@Note?.Tittle</label>
+
+    @if (!string.IsNullOrEmpty(Note?.Content))
+    {
+        <label class="mt-0.5 break-all text-sm font-medium text-zinc-700 @(HasTasks ? "line-clamp-1" : "line-clamp-3 whitespace-normal") dark:text-white">@Note.Content</label>
+    }
+
+    @* Tareas *@
+    @if (HasTasks)
+    {
+        <div class="mt-auto flex flex-col gap-1.5 pt-2">
+            @foreach (var task in Note!.Tasks.Take(2))
+            {
+                <div class="flex items-center gap-2">
+                    <div class="flex h-4 w-4 flex-shrink-0 items-center justify-center rounded border @(task.IsCompleted ? "border-zinc-600/70 bg-zinc-600/70 dark:border-zinc-300/70 dark:bg-zinc-300/70" : "border-zinc-600/50 dark:border-zinc-300/50")">
+                        @if (task.IsCompleted)
+                        {
+                            <svg class="h-2.5 w-2.5 text-white dark:text-zinc-900" fill="none" viewBox="0 0 24 24" stroke-width="3.5" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" />
+                            </svg>
+                        }
+                    </div>
+                    <span class="truncate text-xs text-zinc-700 dark:text-zinc-200 @(task.IsCompleted ? "line-through opacity-60" : "")">@task.Description</span>
+                </div>
+            }
+            @if (Note!.Tasks.Count > 2)
+            {
+                <span class="text-xs text-zinc-500 dark:text-zinc-400">+@(Note.Tasks.Count - 2) más</span>
+            }
+        </div>
+    }
+
 </div>
